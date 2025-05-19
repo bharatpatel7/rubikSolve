@@ -3,7 +3,7 @@ name: EAS Build
 on:
   workflow_dispatch:  # Manual trigger
   push:
-    branches: [main]  # Auto trigger on push to main
+    branches: [main]  # Or change to whatever branch you're using
 
 jobs:
   eas-build:
@@ -22,7 +22,12 @@ jobs:
         run: npm install -g eas-cli
 
       - name: Authenticate with Expo
-        run: eas whoami || eas login --token ${{ secrets.EXPO_TOKEN }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          echo "//expo.dev:$_authToken=$EXPO_TOKEN" > ~/.npmrc
 
       - name: Build Android App
         run: eas build --platform android --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
