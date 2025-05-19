@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "RubikSolve",
+    "name": "rubikSolve",
     "slug": "rubiksolve",
     "version": "1.0.0",
     "sdkVersion": "50.0.0",
@@ -21,15 +21,11 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
       "package": "com.bharatpatel.rubiksolve"
+    },
+    "ios": {
+      "bundleIdentifier": "com.bharatpatel.rubiksolve"
     },
     "extra": {
       "eas": {
