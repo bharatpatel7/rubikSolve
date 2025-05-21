@@ -1,10 +1,21 @@
 {
   "name": "React Native Dev",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
   "postCreateCommand": "npm install -g expo-cli eas-cli && npm install",
   "customizations": {
     "vscode": {
-      "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "msjsdiag.vscode-react-native"
+      ]
     }
-  }
+  },
+  "mounts": [
+    "source=rubik-node-modules,target=/workspace/node_modules,type=volume"
+  ]
 }
